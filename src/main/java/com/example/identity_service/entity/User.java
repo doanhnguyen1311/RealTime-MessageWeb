@@ -1,5 +1,6 @@
 package com.example.identity_service.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.Token;
@@ -24,6 +25,7 @@ public class User {
     private String name;
     private LocalDate dob;
 
+    @JsonIgnore
     @ManyToMany
     private Set<Role> roles;
 

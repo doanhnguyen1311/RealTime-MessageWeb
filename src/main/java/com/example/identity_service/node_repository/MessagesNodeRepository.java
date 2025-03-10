@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MessagesNodeRepository extends Neo4jRepository<MessagesNode, Long> {
-    @Query("MATCH (a:User {id: $senderId}), (b:User {id: $receiverId}) " +
-            "CREATE (m:Message {content: $content, timestamp: datetime()}) " +
-            "CREATE (a)-[:SENT_MESSAGE]->(m)-[:TO]->(b)")
+    @Query("MATCH (a:user {id: $senderId}), (b:user {id: $receiverId})\n" +
+            "MERGE (a)-[:SENT_MESSAGE]->(m:Message {content: $content, timestamp: datetime()})-[:TO]->(b)\n")
     Messages saveMessage(@Param("senderId") String senderId, @Param("receiverId") String receiverId, @Param("content") String content);
 }
