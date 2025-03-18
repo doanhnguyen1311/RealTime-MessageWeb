@@ -38,6 +38,7 @@ public class MessageController {
 
         log.info("Received ID: " + request.getReceiverId());
         log.info("SenderID" + request.getSenderId());
+        log.info("Message: " + request.getContent());
         MessageResponse message = messageService.sendMessage(request.getSenderId(), request.getReceiverId(), request.getContent());
 
         System.out.println("Saved Message: " + message); // Log tin nhắn sau khi lưu

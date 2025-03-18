@@ -1,6 +1,5 @@
 package com.example.identity_service.controller;
 
-import com.example.identity_service.dto.request.IntrospectRequest;
 import com.example.identity_service.dto.request.UserCreatingRequest;
 import com.example.identity_service.dto.request.UserUpdateRequest;
 import com.example.identity_service.dto.response.APIResponse;
@@ -15,8 +14,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 

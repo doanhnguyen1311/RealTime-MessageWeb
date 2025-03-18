@@ -46,7 +46,12 @@ public class MessageService {
                 .build();
 
         messageNodeRepository.saveMessage(senderId, receiverId, message);
-        return messageMapper.toMessageResponse(messageRepository.save(messages));
+
+        Messages saveMessage = messageRepository.save(messages);
+
+        log.info("Message saved to database: {}", saveMessage.toString());
+
+        return messageMapper.toMessageResponse(saveMessage);
     }
 
     public List<Messages> getMessages(String senderId, String receiverId) {

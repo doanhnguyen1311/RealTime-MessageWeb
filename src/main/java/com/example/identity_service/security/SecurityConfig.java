@@ -25,7 +25,7 @@ public class SecurityConfig {
 
     private final String[] PUBLIC_URLS = {
             "/user/add", "/auth/login", "/auth/introspect", "/auth/logout", "/auth/refreshToken", "/usernode/**",
-            "/ws/**"
+            "/ws/**", "/api/set", "/api/**"
     };
     private final String[] ADMIN_URL = {
             "/user/getUsers"
@@ -54,7 +54,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5174")); // List thay vì addAllowedOrigin()
+        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // List thay vì addAllowedOrigin()
         configuration.setAllowedMethods(List.of("*"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
